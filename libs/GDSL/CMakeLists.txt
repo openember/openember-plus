@@ -1,0 +1,22 @@
+project(gdsl)
+
+file(GLOB_RECURSE LIB_GDSL_SRCS src/*.c)
+
+AGLOO_ADD_STATIC_LIBRARY (TARGET ${PROJECT_NAME} 
+    SRCS     ${LIB_GDSL_SRCS}
+    LIBS     ${AGLOO_EXTERNAL_LIBRARIES} 
+    INCLUDES ${AGLOO_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/src
+    DESTINATION lib
+)
+
+set( GDSL_EXAMPLE_SRCS 
+    examples/main_list.c
+    examples/_strings.c
+)
+
+AGLOO_ADD_EXECUTABLE(TARGET gdsl_list_example
+    SRCS     ${GDSL_EXAMPLE_SRCS}
+    LIBS     ${AGLOO_LIBRARIES}
+    INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/examples
+    DESTINATION example
+)

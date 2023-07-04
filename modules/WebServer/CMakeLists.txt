@@ -1,0 +1,14 @@
+project(WebServer VERSION 1.0.0)
+
+set( WEB_MODULE_SRCS 
+    main.c mongoose.c
+)
+
+AGLOO_ADD_EXECUTABLE(TARGET ${PROJECT_NAME} 
+    SRCS     ${WEB_MODULE_SRCS} 
+    LIBS     ${AGLOO_LIBRARIES}
+    INCLUDES ${AGLOO_INCLUDE_DIRS}
+    DESTINATION bin 
+)
+
+file(COPY web_root DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/../..")

@@ -1,0 +1,14 @@
+project(WorkflowController VERSION 1.0.0)
+
+set( WORKFLOW_CONTROLLER_SRCS 
+    main.c
+    fsm.c
+    smm.c
+)
+
+AGLOO_ADD_EXECUTABLE(TARGET ${PROJECT_NAME} 
+    SRCS     ${WORKFLOW_CONTROLLER_SRCS}
+    LIBS     ${AGLOO_LIBRARIES}
+    INCLUDES ${AGLOO_INCLUDE_DIRS}
+    DESTINATION bin 
+)
