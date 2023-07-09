@@ -28,6 +28,7 @@ option( CROSSCOMPILE_ENABLED "Whether to build for ARM" OFF)
 option( OPENMP_ENABLED "Whether to enable omp feature" OFF)
 option( TESTS_ENABLED "Whether to unit test" ON)
 option( EXAMPLES_ENABLED "Whether compile examples" ON)
+option( BUILD_DDS "Whether compile CycloneDDS" OFF)
 option( BUILD_CJSON "Whether compile cJSON" OFF)
 option( BUILD_MQTT "Whether compile MQTT" OFF)
 option( BUILD_MD5 "Whether compile md5" OFF)
@@ -69,6 +70,18 @@ endif()
 ################################################################################
 # Find packages
 ################################################################################
+find_package(CycloneDDS QUIET)
+
+if(NOT CycloneDDS_FOUND) 
+    message(STATUS "CycloneDDS not found! Build from source")
+    set(BUILD_DDS TRUE)
+    set(DDS_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/third_party/cyclonedds/src)
+    set(DDS_LIBRARIES ddsc)
+endif()
+message(STATUS "├── ${DDS_LIBRARIES}")
+message(STATUS "└── ${DDS_INCLUDE_DIRS}")
+
+
 find_package(ZLOG QUIET)
 
 if(NOT ZLOG_FOUND) 
@@ -119,6 +132,7 @@ set(SQLITE_LIBRARIES sqlite3)
 add_subdirectory(third_party)
 
 set( AGLOO_EXTERNAL_INCLUDE_DIRS
+    ${DDS_INCLUDE_DIRS}
     ${ZLOG_INCLUDE_DIRS}
     ${EASYLOGGER_INCLUDE_DIRS}
     ${PAHO_MQTT_C_INCLUDE_DIRS}
@@ -127,6 +141,7 @@ set( AGLOO_EXTERNAL_INCLUDE_DIRS
 )
 
 set( AGLOO_EXTERNAL_LIBRARIES
+    ${DDS_LIBRARIES}
     ${ZLOG_LIBRARIES}
     ${EASYLOGGER_LIBRARIES}
     ${PAHO_MQTT_C_LIBRARIES}
@@ -172,6 +187,7 @@ set( AGLOO_LIBRARIES
 add_subdirectory(libs)
 add_subdirectory(modules)
 add_subdirectory(src)
+add_subdirectory(applications)
 
 #========================================================
 # for unittest, call "cmake .. -DUNIT_TEST=ON"

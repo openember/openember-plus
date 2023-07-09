@@ -1,5 +1,9 @@
 set(FOLDER_NAME "third_party")
 
+if (BUILD_DDS)
+    add_subdirectory(cyclonedds)
+endif()
+
 if (BUILD_ZLOG)
     add_subdirectory(zlog)
 endif()
