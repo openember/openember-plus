@@ -11,7 +11,7 @@
 #ifndef __AG_COMMON_H__
 #define __AG_COMMON_H__
 
-#include "agloo.h"
+#include "openember.h"
 
 void sayHello(const char *name);
 

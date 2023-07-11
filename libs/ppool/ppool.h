@@ -14,7 +14,7 @@
 
 #include <pthread.h>
 
-#include "agloo.h"
+#include "openember.h"
 #include "ppool_queue.h"
 
 pthread_mutex_t PPOOL_LOCK;
