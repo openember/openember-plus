@@ -16,7 +16,7 @@
 
 static msg_node_t client;
 
-#define WEB_ROOT    "/opt/agloo/web_root"
+#define WEB_ROOT    "/opt/openember/web_root"
 //#define WEB_ROOT    "../modules/WebServer/web_src/dist"
 //#define WEB_ROOT    "web_root"
 #define WEB_PORT    "0.0.0.0:8000"
@@ -39,7 +39,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data)
     struct mg_http_serve_opts opts = {.root_dir = s_root_dir};   // Serve local dir
 
     if (ev == MG_EV_HTTP_MSG) {
-        mg_http_serve_dir(c, ev_data, &opts);
+        mg_http_serve_dir(c, (struct mg_http_message *)ev_data, &opts);
     }
 }
 
