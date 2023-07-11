@@ -15,10 +15,10 @@ int main(void)
 {
     log_init(LOG_TAG);
 
-    LOG_D("Hello Agloo!");
-    LOG_I("Hello Agloo!");
-    LOG_W("Hello Agloo!");
-    LOG_E("Hello Agloo!");
+    LOG_D("Hello OpenEmber!");
+    LOG_I("Hello OpenEmber!");
+    LOG_W("Hello OpenEmber!");
+    LOG_E("Hello OpenEmber!");
 
     log_deinit();
 
