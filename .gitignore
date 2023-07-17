@@ -5,7 +5,8 @@ release
 tmp
 *.user
 
-.vscode
+.vscode/
+__pycache__/
 
 # Prerequisites
 *.d

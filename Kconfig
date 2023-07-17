@@ -1,0 +1,16 @@
+mainmenu "OpenEmber project configuration"
+
+menu "Toolchain configuration"
+	config TOOLCHAIN_PATH
+		string "toolchain path"
+		default ""
+
+	config TOOLCHAIN_PREFIX
+		string "toolchain prefix"
+		default ""
+endmenu
+
+config TEST_OPTION
+	bool "Test Option"
+	help
+		Test option description

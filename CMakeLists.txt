@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-project(OpenEmber VERSION 1.0.0 LANGUAGES CXX C)
+project(OpenEmber 
+    VERSION     1.0.0
+    DESCRIPTION "OpenEmber Project"
+    LANGUAGES   C
+)
 
 set(CMAKE_THREAD_LIBS_INIT "-lpthread")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
@@ -18,6 +22,14 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 # Include helper macros and commands, and allow the included file to override
 # the CMake policies in this file
 include(${CMAKE_SOURCE_DIR}/cmake/AglooCMakeHelper.cmake NO_POLICY_SCOPE)
+
+# Kconfig
+include(${CMAKE_SOURCE_DIR}/cmake/top.cmake)
+
+if(CONFIG_TEST_OPTION)
+    message("Config test_option enabled")
+endif()
+
 
 ################################################################################
 # Options

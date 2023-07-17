@@ -1,7 +1,8 @@
 # To Do List
 
 - [x] 搭建 CMake 工程
-- [x] 支持消息队列中间件（Paho-MQTT、Mosquitto、ZeroMQ）
+- [ ] 集成 Kconfig 配置工具（基于 [Kconfiglib](https://github.com/ulfalizer/Kconfiglib) 库）
+- [x] 支持消息队列中间件（CycloneDDS、Paho-MQTT、Mosquitto、ZeroMQ）
 - [ ] 支持数据库存储（SQLite、MySQL）
 - [x] 支持 HTTP 服务器（Mongoose）
 - [x] 提供前端网页模板（Bootstrap、Vue）

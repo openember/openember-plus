@@ -11,6 +11,7 @@
 #ifndef __AGLOO_H__
 #define __AGLOO_H__
 
+#include "autoconf.h"
 #include "agconfig.h"
 #include "agdef.h"
 #include "topic.h"
