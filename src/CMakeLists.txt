@@ -1,9 +1,9 @@
 project(WorkflowController VERSION 1.0.0)
 
 set( WORKFLOW_CONTROLLER_SRCS 
-    main.c
-    fsm.c
-    smm.c
+    main.cpp
+    fsm.cpp
+    smm.cpp
 )
 
 AGLOO_ADD_EXECUTABLE(TARGET ${PROJECT_NAME} 

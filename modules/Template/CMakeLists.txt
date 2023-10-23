@@ -1,7 +1,7 @@
 project(Template VERSION 1.0.0)
 
 set( TEMPLATE_MODULE_SRCS 
-    main.c
+    main.cpp
 )
 
 AGLOO_ADD_EXECUTABLE(TARGET ${PROJECT_NAME} 
